@@ -8,9 +8,9 @@
       <span class="font_icon"><i class="iconfont" :class="$route.path === '/classify' ? 'icon-classify-active' : 'icon-classify'"></i></span>
       <span>分类</span>
     </a>
-    <a href="javascript:;" class="guide_item" @click="goto('discern')" :class="{on: $route.path === '/discern'}">
+    <a href="javascript:;" class="guide_item" @click="goto('discern')" :class="{on: $route.path.indexOf('discern') !== -1}">
       <span class="font_icon">
-        <i class="iconfont" :class="$route.path === '/discern' ? 'icon-discern-active' : 'icon-discern'"></i>
+        <i class="iconfont" :class="$route.path.indexOf('discern') !== -1 ? 'icon-discern-active' : 'icon-discern'"></i>
       </span>
       <span>识物</span>
     </a>
@@ -36,6 +36,7 @@ import '../../../static/font_6trv1a94r1e/iconfont.css'
       goto (path) {
         console.log(path)
         this.$router.replace(`/${path}`)
+
       }
     },
     components: {}

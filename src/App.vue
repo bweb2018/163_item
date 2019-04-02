@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <Header/>
     <router-view/>
-    <Foot/>
+    <Foot v-show="$route.meta.isShow"/>
   </div>
 </template>
 
 <script>
-  import Header from './components/Header/Header.vue'
   import Foot from './components/Foot/Foot.vue'
+  import '../static/font_nd1c1we5axh/iconfont.css'
   export default {
     components: {
       Foot
+    },
+    beforeRouteEnter:(to,from,next)=>{
+      next(vm=>{
+        alert(vm);
+      })
     }
   }
 </script>
